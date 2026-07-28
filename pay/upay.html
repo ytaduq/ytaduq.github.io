@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>支付页 - TokenPay支付中心</title>
+    <link rel="icon" href="/pay/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/pay/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/pay/css/site.css?v=N9XMbkoIBXZkXAP5955Bt4hYm733Mz0D01_-ONsLA4Y" />
+    <link rel="stylesheet" href="/pay/TokenPay.styles.css?v=zmewBKcJ7KeJ4eSUIKeIsY7tFGAgwlhjwSsZK78YNm4" />
+</head>
+
+<body>
+    <div class="container h-100">
+        <main role="main" class="h-100">
+            <style>
+                .time {
+                    font-family: Consolas, Menlo, Courier;
+                }
+
+                .address {
+                    font-size: 14px;
+                }
+            </style>
+            <div class="text-center pt-2">
+                <h4 class="display-6">您正在支付 <span class="text-danger">&#x6CE2;&#x573A;(TRON)</span> 的 <span
+                        class="text-danger">USDT-TRC20</span></h4>
+                <div class="d-flex mb-2">
+                    <div class="input-group m-auto" style="width:410px;">
+                        <input class="form-control form-control-sm" type="text" id="Token"
+                            value="TKnLTDMTG112eGBUFRNY4tGzvp22VBb52P" readonly>
+                        <button class="btn btn-primary btn-sm" data-clipboard-target="#Token">复制</button>
+                    </div>
+                </div>
+                <div class="mb-2 fw-bold display-6 invisible time"> 剩余时间：<span class="text-danger"><span
+                            id="day_show"></span><span id="hour_show"></span><span id="minute_show"></span><span
+                            id="second_show"></span></span>
+                </div>
+                <div class="text-danger fw-bold mb-2">请仔细核对区块链和币种，避免丢失资产或支付失败！！！</div>
+                <div class="mb-2">
+                    <div class="text-danger fw-bold" style="position:relative;bottom:-6px;height:0;">
+                        区块链：&#x6CE2;&#x573A;(TRON) 币种：USDT</div>
+                    <img src="data:image/png;base64,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"
+                        class="border border-gray-300" alt="收款地址">
+                    <div class="text-danger fw-semibold address" style="position:relative;top:-24px;height:0;">
+                        TKnLTDMTG112eGBUFRNY4tGzvp22VBb52P</div>
+                </div>
+                <div class="text-start m-auto" style="width:300px;">
+                    <div class="mb-2 fw-bold"> 支付金额：<span class="text-danger" id="money"></span><button id="copyMoney"
+                            class="btn btn-primary btn-sm ms-2">复制</button>
+                    </div>
+                    <div class="mb-2"> 订单编号：<span class="text-danger" id="orderId"></span>
+                    </div>
+                    <div class="mb-2"> 过期时间：<span class="text-danger" id="expireTime"></span>
+                    </div>
+                    <div class="mt-4 text-start">
+                        <div>区块链货币购买地址</div>
+                        <div>1. 在 <a href="https://www.okx.com/buy-crypto#sourceBase=USDT" target="_blank">OKX（欧易）</a>
+                            购买 <span class="text-danger">USDT</span></div>
+                        <div>2. 在 <a href="https://p2p.binance.com/express/buy/USDT" target="_blank">Binance（币安）</a> 购买
+                            <span class="text-danger">USDT</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/pay/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/pay/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/pay/lib/clipboard/dist/clipboard.min.js"></script>
+    <script src="/pay/js/site.js?v=IIYcYKAWsvNckgUwgf195_iGQXvYZno2GjbMgpvZJTA"></script>
+    <script src="/pay/js/upay.js?v=548445"></script>
+</body>
+
+</html>
