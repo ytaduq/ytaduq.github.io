@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>支付页 - TokenPay支付中心</title>
+    <link rel="icon" href="/pay/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/pay/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/pay/css/site.css?v=N9XMbkoIBXZkXAP5955Bt4hYm733Mz0D01_-ONsLA4Y" />
+    <link rel="stylesheet" href="/pay/TokenPay.styles.css?v=zmewBKcJ7KeJ4eSUIKeIsY7tFGAgwlhjwSsZK78YNm4" />
+</head>
+
+<body>
+    <div class="container h-100">
+        <main role="main" class="h-100">
+            <style>
+                .time {
+                    font-family: Consolas, Menlo, Courier;
+                }
+
+                .address {
+                    font-size: 14px;
+                }
+            </style>
+            <div class="text-center pt-2">
+                <h4 class="display-6">您正在支付 <span class="text-danger">&#x6CE2;&#x573A;(TRON)</span> 的 <span
+                        class="text-danger">USDT-TRC20</span></h4>
+                <div class="d-flex mb-2">
+                    <div class="input-group m-auto" style="width:410px;">
+                        <input class="form-control form-control-sm" type="text" id="Token"
+                            value="TKnLTDMTG112eGBUFRNY4tGzvp22VBb52P" readonly>
+                        <button class="btn btn-primary btn-sm" data-clipboard-target="#Token">复制</button>
+                    </div>
+                </div>
+                <div class="mb-2 fw-bold display-6 invisible time"> 剩余时间：<span class="text-danger"><span
+                            id="day_show"></span><span id="hour_show"></span><span id="minute_show"></span><span
+                            id="second_show"></span></span>
+                </div>
+                <div class="text-danger fw-bold mb-2">请仔细核对区块链和币种，避免丢失资产或支付失败！！！</div>
+                <div class="mb-2">
+                    <div class="text-danger fw-bold" style="position:relative;bottom:-6px;height:0;">
+                        区块链：&#x6CE2;&#x573A;(TRON) 币种：USDT</div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABHNCSVQICAgIfAhkiAAABrxJREFUeJzt3VFuo0oURdH4qec/Zb8ZBCQobm2y1ncnJja9VR9H&#x2B;PP9fr8/AAH/TV8AwFmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQ8W/6Aj6fz/QlLPf9fpe/xtH7eHQN05/D1eu74&#x2B;&#x2B;7&#x2B;jlNv4dPeOJe/o0TFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZIwPR8&#x2B;YHqsduToYvDqKvMP0sHT1MPTMe7j6c3j7ffwEJywgQ7CADMECMgQLyBAsIEOwgAzBAjISO6wjq/cjq/czd/z&#x2B;6YfPPbGTerv6ffwEJywgQ7CADMECMgQLyBAsIEOwgAzBAjJescOqe&#x2B;I5RKuf5VR/XtaZ38E8JywgQ7CADMECMgQLyBAsIEOwgAzBAjLssDaww4Zoeqe1w/OydrgGfueEBWQIFpAhWECGYAEZggVkCBaQIVhAxit2WPV9zBPPw1r9vYOrf/6qM6//xOfwm&#x2B;n3qMAJC8gQLCBDsIAMwQIyBAvIECwgQ7CAjMQOa3ofM&#x2B;2ODdHq7xVc/fqrf/4Jf/0&#x2B;voMTFpAhWECGYAEZggVkCBaQIVhAhmABGeM7rB32MdNWb6TO/I765/CG73bkmBMWkCFYQIZgARmCBWQIFpAhWECGYAEZn&#x2B;/weKTwjKAndlJXveF5Ub954vpXf3fj9DO/6vfAz48TFhAiWECGYAEZggVkCBaQIVhAhmABGeM7rCf8hf3K9PcSXrXD9e1wDb9ZfZ898cywq5ywgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgY/yLVM/Yfbi5&#x2B;/WdMT2aLLyHbxgY/2b36/v5ccICQgQLyBAsIEOwgAzBAjIEC8gQLCAjscPa4cFlv9lhv3L1Gnb/EtGr7ng43fQD/HZ4SOP0ve6EBWQIFpAhWECGYAEZggVkCBaQIVhARmKHddXqjdAO&#x2B;5gjV/czu78HR7//zN&#x2B;/eis2vUV7AycsIEOwgAzBAjIEC8gQLCBDsIAMwQIyxndYTzyj5&#x2B;prrN7P7LC/2f1v2OE9OrL6Prtqhz3gVU5YQIZgARmCBWQIFpAhWECGYAEZggVkfL6Bgcv09wZO72PusPt7GLgNx3kPnbCAEMECMgQLyBAsIEOwgAzBAjIEC8hIPA&#x2B;r/ryrJ&#x2B;y&#x2B;s1pth89w&#x2B;j246o7/i6s5YQEZggVkCBaQIVhAhmABGYIFZAgWkDG&#x2B;w3rC6o3ODhugadM7rjve49XXcPU&#x2B;ecNz2a5ywgIyBAvIECwgQ7CADMECMgQLyBAsICOxw9p9R7V6f3OH3Tc&#x2B;09d3xvTOavV7ZIcFcCPBAjIEC8gQLCBDsIAMwQIyBAvISOywpjc6uz8n6ey/ufLzq7/78Yit23WFndURJywgQ7CADMECMgQLyBAsIEOwgAzBAjISO6yrChue39yx33n7s5SmX//nZ/&#x2B;d1e73&#x2B;RlOWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkPEnhqNvf8DfE6aHp9NfMnrX75h8/cIw9IgTFpAhWECGYAEZggVkCBaQIVhAhmABGZ/vG8YZcU/se6Y/5ukN05m/f/oBd6u3ZtP3wB2csIAMwQIyBAvIECwgQ7CADMECMgQLyBh/Htb0PucJV/cvd&#x2B;xnPEtpvdU7qL&#x2B;wszrihAVkCBaQIVhAhmABGYIFZAgWkCFYQMb4DuuM3fclb9g41TdCR6//F545duSO92D6b3TCAjIEC8gQLCBDsIAMwQIyBAvIECwgI7HDOrJ6YzO9IZrevpyx&#x2B;jvznniPdthyTSrcZ05YQIZgARmCBWQIFpAhWECGYAEZggVkvGKH9XZn9j9HG5qrO6erdthZrTb9TLGrn&#x2B;Ed99lqTlhAhmABGYIFZAgWkCFYQIZgARmCBWTYYQWc2b5c3fDssPFZ&#x2B;fNnrN5R7W56Y3WGExaQIVhAhmABGYIFZAgWkCFYQIZgARmv2GEV9iOrTW&#x2B;IVu&#x2B;4nnie1uprXG36mWdPcMICMgQLyBAsIEOwgAzBAjIEC8gQLCAjscN6w37kijv&#x2B;/qsboemd1dWfv&#x2B;M7945&#x2B;x&#x2B;736fRO7A5OWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkPH5vmFNBvwJTlhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWT8DzEeTkzdzVFvAAAAAElFTkSuQmCC"
+                        class="border border-gray-300" alt="收款地址">
+                    <div class="text-danger fw-semibold address" style="position:relative;top:-24px;height:0;">
+                        TKnLTDMTG112eGBUFRNY4tGzvp22VBb52P</div>
+                </div>
+                <div class="text-start m-auto" style="width:300px;">
+                    <div class="mb-2 fw-bold"> 支付金额：<span class="text-danger" id="money"></span><button id="copyMoney"
+                            class="btn btn-primary btn-sm ms-2">复制</button>
+                    </div>
+                    <div class="mb-2"> 订单编号：<span class="text-danger" id="orderId"></span>
+                    </div>
+                    <div class="mb-2"> 过期时间：<span class="text-danger" id="expireTime"></span>
+                    </div>
+                    <div class="mt-4 text-start">
+                        <div>区块链货币购买地址</div>
+                        <div>1. 在 <a href="https://www.okx.com/buy-crypto#sourceBase=USDT" target="_blank">OKX（欧易）</a>
+                            购买 <span class="text-danger">USDT</span></div>
+                        <div>2. 在 <a href="https://p2p.binance.com/express/buy/USDT" target="_blank">Binance（币安）</a> 购买
+                            <span class="text-danger">USDT</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/pay/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/pay/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/pay/lib/clipboard/dist/clipboard.min.js"></script>
+    <script src="/pay/js/site.js?v=IIYcYKAWsvNckgUwgf195_iGQXvYZno2GjbMgpvZJTA"></script>
+    <script src="/pay/js/upay.js?v=548445"></script>
+</body>
+
+</html>
